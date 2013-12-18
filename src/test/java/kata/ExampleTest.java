@@ -1,5 +1,9 @@
 package kata;
 
+import java.lang.reflect.Array;
+
+import com.google.common.collect.ImmutableList;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
@@ -37,14 +41,22 @@ public final class ExampleTest {
 
     @Test
     public void twoDigits() {
-        assertThat(Example.secondPosition(1).isEqualTo("ti"));
-        assertThat(Example.secondPosition(2).isEqualTo("tjue"));
-        assertThat(Example.secondPosition(3).isEqualTo("tretti"));
-        assertThat(Example.secondPosition(4).isEqualTo("førti"));
-        assertThat(Example.secondPosition(5).isEqualTo("femti"));
-        assertThat(Example.secondPosition(6).isEqualTo("seksti"));
-        assertThat(Example.secondPosition(7).isEqualTo("søtti"));
-        assertThat(Example.secondPosition(8).isEqualTo("åtti"));
-        assertThat(Example.secondPosition(9).isEqualTo("nitti"));
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(1)).isEqualTo("ti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(2)).isEqualTo("tjue");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(3)).isEqualTo("tretti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(4)).isEqualTo("førti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(5)).isEqualTo("femti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(6)).isEqualTo("seksti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(7)).isEqualTo("sytti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(8)).isEqualTo("åtti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(9)).isEqualTo("nitti");
+    }
+
+    @Test
+    public void splitDigits(){
+        org.fest.assertions.Assertions.assertThat(Example.splitDigits(1)).isEqualTo(ImmutableList.of(1));
+        org.fest.assertions.Assertions.assertThat(Example.splitDigits(12)).isEqualTo(ImmutableList.of(1,2));
+        org.fest.assertions.Assertions.assertThat(Example.splitDigits(123)).isEqualTo(ImmutableList.of(1,2,3));
+
     }
 }
