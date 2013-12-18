@@ -1,12 +1,7 @@
 package kata;
 
-import java.lang.reflect.Array;
-
 import com.google.common.collect.ImmutableList;
-
 import org.junit.Test;
-
-import static org.junit.Assert.assertThat;
 
 public final class ExampleTest {
     
@@ -55,8 +50,22 @@ public final class ExampleTest {
     @Test
     public void splitDigits(){
         org.fest.assertions.Assertions.assertThat(Example.splitDigits(1)).isEqualTo(ImmutableList.of(1));
-        org.fest.assertions.Assertions.assertThat(Example.splitDigits(12)).isEqualTo(ImmutableList.of(1,2));
-        org.fest.assertions.Assertions.assertThat(Example.splitDigits(123)).isEqualTo(ImmutableList.of(1,2,3));
+        org.fest.assertions.Assertions.assertThat(Example.splitDigits(12)).isEqualTo(ImmutableList.of(2, 1));
+        org.fest.assertions.Assertions.assertThat(Example.splitDigits(123)).isEqualTo(ImmutableList.of(3, 2, 1));
+    }
+
+    @Test
+    public void combineDigitAndPosition() {
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 1)).isEqualTo("en");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 2)).isEqualTo("ti");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 3)).isEqualTo("ethundre");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 4)).isEqualTo("ettusen");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 5)).isEqualTo("titusen");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 1)).isEqualTo("to");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 2)).isEqualTo("tjue");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 3)).isEqualTo("tohundre");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 4)).isEqualTo("totusen");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 5)).isEqualTo("tjuetusen");
 
     }
 }

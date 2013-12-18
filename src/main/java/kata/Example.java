@@ -1,5 +1,8 @@
 package kata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Example {
 
     private Example() { }
@@ -47,6 +50,15 @@ public final class Example {
             case 9 : return "nitti";
             default : return simpleValue(number) + "ti";
         }
+    }
+
+    public static List<Integer> splitDigits(int number) {
+        List<Integer> digits = new ArrayList<Integer>();
+        while(number > 0) {
+            digits.add(number % 10);
+            number /= 10;
+        }
+        return digits;
     }
 
 }
