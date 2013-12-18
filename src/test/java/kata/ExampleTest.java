@@ -1,6 +1,7 @@
 package kata;
 
 import com.google.common.collect.ImmutableList;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public final class ExampleTest {
@@ -68,7 +69,15 @@ public final class ExampleTest {
         org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 5)).isEqualTo("tjuetusen");
 
     }
+    public void getNumberAsString() {
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(1)).isEqualTo("en");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(100)).isEqualTo("etthundre");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(300)).isEqualTo("trehundre");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(333)).isEqualTo("trehundretrettitre");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(1450)).isEqualTo("ettusenfirehundreogfemti");
+    }
 
+    @Ignore
     @Test
     public void betweenTenAndTwenty() {
         org.fest.assertions.Assertions.assertThat(Example.firstPosition(10)).isEqualTo("ti");
