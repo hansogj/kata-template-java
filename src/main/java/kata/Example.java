@@ -1,7 +1,10 @@
 package kata;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
+import sun.net.NetProperties;
 
 public final class Example {
 
@@ -19,7 +22,7 @@ public final class Example {
     public static String simpleValue(int number) {
         switch (number) {
             case 0 : return "null";
-            case 1 : return "en";
+            case 1 : return "ett";
             case 2 : return "to";
             case 3 : return "tre";
             case 4 : return "fire";
@@ -52,6 +55,17 @@ public final class Example {
         }
     }
 
+    public static String getPosition(int pos) {
+        switch (pos) {
+            case 3 : return "hundre";
+            case 4 : return "tusen";
+            case 6 : return "hundretusen";
+            case 7 : return "million";
+            default : return "";
+        }
+
+    }
+
     public static List<Integer> splitDigits(int number) {
         List<Integer> digits = new ArrayList<Integer>();
         while(number > 0) {
@@ -60,5 +74,23 @@ public final class Example {
         }
         return digits;
     }
+
+    public static String combineDigitAndPostion(int number, int position) {
+        String result = "";
+        switch (position) {
+           case 1: result =  firstPosition(number); break;
+           case 2: result =  secondPosition(number); break;
+           case 3: result =  firstPosition(number) + getPosition(position); break;
+           case 4: result =  firstPosition(number) + getPosition(position); break;
+           case 5: result =  secondPosition(number) + getPosition(position-1);break;
+           case 6: result =  firstPosition(number) + getPosition(position); break;
+
+           default: return "";
+       }
+        result = result.replaceAll("ttt", "tt");
+        return result;
+    }
+
+
 
 }
