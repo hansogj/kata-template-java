@@ -1,7 +1,6 @@
 package kata;
 
 import com.google.common.collect.ImmutableList;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public final class ExampleTest {
@@ -23,7 +22,7 @@ public final class ExampleTest {
 
     @Test
     public void oneDigits() {
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(0)).isEqualTo("null");
+        org.fest.assertions.Assertions.assertThat(Example.firstPosition(0)).isEqualTo("");
         org.fest.assertions.Assertions.assertThat(Example.firstPosition(1)).isEqualTo("ett");
         org.fest.assertions.Assertions.assertThat(Example.firstPosition(2)).isEqualTo("to");
         org.fest.assertions.Assertions.assertThat(Example.firstPosition(3)).isEqualTo("tre");
@@ -37,7 +36,7 @@ public final class ExampleTest {
 
     @Test
     public void twoDigits() {
-        org.fest.assertions.Assertions.assertThat(Example.secondPosition(1)).isEqualTo("ti");
+        org.fest.assertions.Assertions.assertThat(Example.secondPosition(1)).isEqualTo("");
         org.fest.assertions.Assertions.assertThat(Example.secondPosition(2)).isEqualTo("tjue");
         org.fest.assertions.Assertions.assertThat(Example.secondPosition(3)).isEqualTo("tretti");
         org.fest.assertions.Assertions.assertThat(Example.secondPosition(4)).isEqualTo("førti");
@@ -58,7 +57,7 @@ public final class ExampleTest {
     @Test
     public void combineDigitAndPosition() {
         org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 1)).isEqualTo("ett");
-        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 2)).isEqualTo("ti");
+        org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 2)).isEqualTo("");
         org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 3)).isEqualTo("etthundre");
         org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 4)).isEqualTo("ettusen");
         org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(1, 5)).isEqualTo("titusen");
@@ -69,27 +68,29 @@ public final class ExampleTest {
         org.fest.assertions.Assertions.assertThat(Example.combineDigitAndPostion(2, 5)).isEqualTo("tjuetusen");
 
     }
+
+    @Test
     public void getNumberAsString() {
-        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(1)).isEqualTo("en");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(1)).isEqualTo("ett");
         org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(100)).isEqualTo("etthundre");
         org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(300)).isEqualTo("trehundre");
         org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(333)).isEqualTo("trehundretrettitre");
-        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(1450)).isEqualTo("ettusenfirehundreogfemti");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(1450)).isEqualTo("ettusenfirehundrefemti");
     }
 
-    @Ignore
     @Test
     public void betweenTenAndTwenty() {
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(10)).isEqualTo("ti");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(11)).isEqualTo("elleve");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(12)).isEqualTo("tolv");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(13)).isEqualTo("tretten");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(14)).isEqualTo("fjorten");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(15)).isEqualTo("femten");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(16)).isEqualTo("seksten");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(17)).isEqualTo("sytten");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(18)).isEqualTo("atten");
-        org.fest.assertions.Assertions.assertThat(Example.firstPosition(19)).isEqualTo("nitten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(10)).isEqualTo("ti");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(11)).isEqualTo("elleve");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(12)).isEqualTo("tolv");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(13)).isEqualTo("tretten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(14)).isEqualTo("fjorten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(15)).isEqualTo("femten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(16)).isEqualTo("seksten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(17)).isEqualTo("sytten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(18)).isEqualTo("atten");
+        org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(19)).isEqualTo("nitten");
+        //org.fest.assertions.Assertions.assertThat(Example.getNumberAsString(10000)).isEqualTo("titusen");
 
     }
 

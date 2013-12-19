@@ -1,10 +1,7 @@
 package kata;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
-import sun.net.NetProperties;
 
 public final class Example {
 
@@ -21,7 +18,7 @@ public final class Example {
 
     public static String simpleValue(int number) {
         switch (number) {
-            case 0 : return "null";
+            case 0 : return "";
             case 1 : return "ett";
             case 2 : return "to";
             case 3 : return "tre";
@@ -42,7 +39,7 @@ public final class Example {
     public static String secondPosition(int number) {
         switch (number) {
             case 0 : return "";
-            case 1 : return "ti";
+            case 1 : return "";
             case 2 : return "tjue";
             case 3 : return "tretti";
             case 4 : return "førti";
@@ -51,6 +48,22 @@ public final class Example {
             case 7 : return "sytti";
             case 8 : return "åtti";
             case 9 : return "nitti";
+            default : return simpleValue(number) + "ti";
+        }
+    }
+
+    public static String elevenToNineteen(int number) {
+        switch (number) {
+            case 0 : return "ti";
+            case 1 : return "elleve";
+            case 2 : return "tolv";
+            case 3 : return "tretten";
+            case 4 : return "fjorten";
+            case 5 : return "femten";
+            case 6 : return "seksten";
+            case 7 : return "sytten";
+            case 8 : return "atten";
+            case 9 : return "nitten";
             default : return simpleValue(number) + "ti";
         }
     }
@@ -89,6 +102,25 @@ public final class Example {
        }
         result = result.replaceAll("ttt", "tt");
         return result;
+    }
+
+    public static String getNumberAsString(int number) {
+        if (number == 0) {
+            return "null";
+        }
+        List<Integer> integerList = splitDigits(number);
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<integerList.size(); i++) {
+            if (i == 1 && integerList.get(i) == 1 && integerList.size() >= 2) {
+                sb = new StringBuilder();
+                sb.insert(0, elevenToNineteen(integerList.get(i-1)));
+            }
+            else {
+                sb.insert(0, combineDigitAndPostion(integerList.get(i), i+1));
+            }
+        }
+
+        return sb.toString();
     }
 
 
